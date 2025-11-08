@@ -123,8 +123,32 @@ def fetch_and_save_stock_prices(
     return prices
 
 
+def main() -> None:
+    """Command-line interface for fetching and storing stock prices."""
+
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__ or "")
+    parser.add_argument(
+        "symbols",
+        nargs="+",
+        help="One or more stock ticker symbols (e.g. AAPL, MSFT)",
+    )
+    parser.add_argument(
+        "--output",
+        "-o",
+        default="stock_prices.csv",
+        help="Destination CSV file path (defaults to stock_prices.csv)",
+    )
+    args = parser.parse_args()
+
+    prices = fetch_and_save_stock_prices(args.symbols, args.output)
+    print(f"Saved {len(prices)} price entries to {args.output}")
+
+
 __all__ = [
     "fetch_stock_prices",
     "fetch_and_save_stock_prices",
     "save_prices_to_csv",
+    "main",
 ]
