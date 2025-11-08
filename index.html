@@ -3,12 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tetris</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1><center>Seyitbek!</center></h1>
-    <h2>My Life Story</h2>
-    <p>My name is <b>Seyitbek</b>. I am 18 years old. I am from Kyrgyzstan. I am a student of SDU. I am a first year student. I am a student of the faculty of engineering and natural sciences.
-    <A href="https://www.linkedin.com/in/seyitbek/">My LinkedIn</A>
-    </body>
+    <main class="app">
+        <header class="app__header">
+            <h1>Tetris</h1>
+            <button id="restart" type="button">New Game</button>
+        </header>
+        <section class="app__content">
+            <div class="app__sidebar">
+                <div class="panel">
+                    <h2>Score</h2>
+                    <p id="score">0</p>
+                </div>
+                <div class="panel">
+                    <h2>Level</h2>
+                    <p id="level">1</p>
+                </div>
+                <div class="panel">
+                    <h2>Lines</h2>
+                    <p id="lines">0</p>
+                </div>
+                <div class="panel">
+                    <h2>Next</h2>
+                    <canvas id="next" width="120" height="180"></canvas>
+                </div>
+                <div class="panel">
+                    <h2>Controls</h2>
+                    <ul>
+                        <li>⬅️ / ➡️ – Move</li>
+                        <li>⬆️ – Rotate</li>
+                        <li>⬇️ – Soft Drop</li>
+                        <li>Space – Hard Drop</li>
+                        <li>Q / E – Rotate ↺ / ↻</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app__board">
+                <canvas id="tetris" width="300" height="600"></canvas>
+                <div id="overlay" class="overlay hidden">
+                    <div class="overlay__content">
+                        <h2>Game Over</h2>
+                        <p>Press “New Game” to try again.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="tetris.js"></script>
+</body>
 </html>
